@@ -1,0 +1,46 @@
+// Reset and base styles
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $font-stack;
+    line-height: 1.6;
+    color: $text-color;
+}
+
+a {
+    color: $secondary-color;
+    text-decoration: none;
+    
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+// Section base styles
+section {
+    padding: 4rem 2rem;
+    max-width: $max-width;
+    margin: 0 auto;
+}
+
+h2 {
+    font-size: 2rem;
+    color: $primary-color;
+    margin-bottom: 1.5rem;
+    border-bottom: 3px solid $secondary-color;
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+// Main content wrapper
+main {
+    margin-top: $header-height;
+}

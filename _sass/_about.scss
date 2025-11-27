@@ -1,0 +1,14 @@
+// About section styles
+#about {
+    background-color: $light-bg;
+    max-width: none;
+    
+    .about-content {
+        max-width: $max-width;
+        margin: 0 auto;
+    }
+    
+    p {
+        max-width: 800px;
+    }
+}

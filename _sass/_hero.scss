@@ -1,0 +1,19 @@
+// Hero section styles
+#hero {
+    background: linear-gradient(135deg, $primary-color 0%, $secondary-color 100%);
+    color: $white;
+    text-align: center;
+    padding: 6rem 2rem;
+    max-width: none;
+    
+    h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    p {
+        font-size: 1.25rem;
+        opacity: 0.9;
+        margin-bottom: 0;
+    }
+}
