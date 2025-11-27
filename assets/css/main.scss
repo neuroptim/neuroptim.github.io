@@ -1,0 +1,20 @@
+---
+# Main stylesheet - imports all partials
+---
+
+// Variables - customize colors, fonts, and layout
+@import "variables";
+
+// Base styles - reset and typography
+@import "base";
+
+// Components
+@import "header";
+@import "hero";
+@import "about";
+@import "research";
+@import "collaborators";
+@import "footer";
+
+// Responsive design
+@import "responsive";

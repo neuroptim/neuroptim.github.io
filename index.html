@@ -1,72 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="NeurOptim - Research team focused on neuromorphic optimization, centralizing collaborative efforts in the field.">
-    <title>NeurOptim - Neuromorphic Optimization Research</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <nav>
-            <div class="logo">NeurOptim</div>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#research">Research</a></li>
-                <li><a href="#collaborators">Collaborators</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+---
+layout: default
+title: Home
+hero_title: Neuromorphic Optimization Research
+hero_subtitle: Centralizing collaborative efforts in neuromorphic computing and optimization
+---
 
-    <main>
-        <section id="hero">
-            <h1>Neuromorphic Optimization Research</h1>
-            <p>Centralizing collaborative efforts in neuromorphic computing and optimization</p>
-        </section>
+{% include hero.html %}
 
-        <section id="about">
-            <h2>About Us</h2>
-            <p>NeurOptim is a research initiative dedicated to advancing the field of neuromorphic optimization. We bring together researchers and collaborators from various institutions to tackle the challenges of developing brain-inspired computing systems and optimization algorithms.</p>
-            <p>Our goal is to centralize all efforts from different collaborators in the field, fostering collaboration and accelerating innovation in neuromorphic computing.</p>
-        </section>
+<section id="about">
+    <h2>About Us</h2>
+    <p>NeurOptim is a research initiative dedicated to advancing the field of neuromorphic optimization. We bring together researchers and collaborators from various institutions to tackle the challenges of developing brain-inspired computing systems and optimization algorithms.</p>
+    <p>Our goal is to centralize all efforts from different collaborators in the field, fostering collaboration and accelerating innovation in neuromorphic computing.</p>
+</section>
 
-        <section id="research">
-            <h2>Research Areas</h2>
-            <div class="research-grid">
-                <div class="research-card">
-                    <h3>Neuromorphic Hardware</h3>
-                    <p>Developing and optimizing brain-inspired hardware architectures for efficient computation.</p>
-                </div>
-                <div class="research-card">
-                    <h3>Spiking Neural Networks</h3>
-                    <p>Advancing algorithms and architectures for spiking neural networks and event-driven computing.</p>
-                </div>
-                <div class="research-card">
-                    <h3>Optimization Algorithms</h3>
-                    <p>Creating novel optimization methods inspired by neuromorphic principles and biological systems.</p>
-                </div>
-            </div>
-        </section>
+{% include research.html %}
 
-        <section id="collaborators">
-            <h2>Collaborators</h2>
-            <p>We work with researchers and institutions worldwide to advance neuromorphic optimization. Our collaborative network includes experts from academia and industry.</p>
-            <div class="collaborators-info">
-                <p>Interested in collaborating? <a href="#contact">Get in touch with us</a> to learn more about partnership opportunities.</p>
-            </div>
-        </section>
+<section id="collaborators">
+    <h2>Collaborators</h2>
+    <p>We work with researchers and institutions worldwide to advance neuromorphic optimization. Our collaborative network includes experts from academia and industry.</p>
+    <div class="collaborators-info">
+        <p>Interested in collaborating? <a href="#contact">Get in touch with us</a> to learn more about partnership opportunities.</p>
+    </div>
+</section>
 
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>For inquiries about our research or collaboration opportunities, please reach out to us.</p>
-            <p>Visit our <a href="https://github.com/neuroptim" target="_blank" rel="noopener noreferrer">GitHub organization</a> for our open-source projects and contributions.</p>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2025 NeurOptim Research Team. All rights reserved.</p>
-    </footer>
-</body>
-</html>
+<section id="contact">
+    <h2>Contact</h2>
+    <p>For inquiries about our research or collaboration opportunities, please reach out to us.</p>
+    <p>Visit our <a href="{{ site.social.github }}" target="_blank" rel="noopener noreferrer">GitHub organization</a> for our open-source projects and contributions.</p>
+</section>

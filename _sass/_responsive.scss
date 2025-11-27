@@ -1,0 +1,45 @@
+// Responsive design
+@media (max-width: $tablet) {
+    .nav-links {
+        gap: 1rem;
+        font-size: 0.9rem;
+    }
+    
+    #hero {
+        h1 {
+            font-size: 1.75rem;
+        }
+        
+        p {
+            font-size: 1rem;
+        }
+    }
+    
+    section {
+        padding: 3rem 1.5rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: $mobile) {
+    header {
+        padding: 1rem;
+    }
+    
+    nav {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    main {
+        margin-top: $header-height-mobile;
+    }
+}
