@@ -1,0 +1,17 @@
+---
+layout: default
+title: Research
+permalink: /research/
+---
+
+<section class="page-section">
+    <h1>Research Areas</h1>
+    <div class="research-grid">
+        {% for area in site.research_areas %}
+        <div class="research-card">
+            <h3>{{ area.title }}</h3>
+            <p>{{ area.description }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</section>

@@ -1,18 +1,20 @@
+@use "variables" as *;
+
 // Hero section styles
 #hero {
     background: linear-gradient(135deg, $primary-color 0%, $secondary-color 100%);
     color: $white;
     text-align: center;
-    padding: 6rem 2rem;
+    padding: 3.5rem 1.5rem;
     max-width: none;
     
     h1 {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
+        font-size: 2.25rem;
+        margin-bottom: 0.75rem;
     }
     
     p {
-        font-size: 1.25rem;
+        font-size: 1.15rem;
         opacity: 0.9;
         margin-bottom: 0;
     }

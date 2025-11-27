@@ -1,3 +1,5 @@
+@use "variables" as *;
+
 // Responsive design
 @media (max-width: $tablet) {
     .nav-links {

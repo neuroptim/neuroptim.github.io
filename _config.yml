@@ -1,6 +1,6 @@
 # Site settings
 title: NeurOptim
-description: Research team focused on neuromorphic optimization, centralizing collaborative efforts in the field.
+description: Research team focused on neuromorphic optimisation, centralising, and documenting collaborative efforts in the field.
 url: "https://neuroptim.org"
 baseurl: ""
 
@@ -17,22 +17,22 @@ theme_color:
 # Navigation links
 navigation:
   - title: About
-    url: "#about"
+    url: /about/
   - title: Research
-    url: "#research"
+    url: /research/
   - title: Collaborators
-    url: "#collaborators"
+    url: /collaborators/
   - title: Contact
-    url: "#contact"
+    url: /contact/
 
-# Research areas (easily customizable)
+# Research areas (easily customisable)
 research_areas:
   - title: Neuromorphic Hardware
-    description: Developing and optimizing brain-inspired hardware architectures for efficient computation.
+    description: Developing and optimising brain-inspired hardware architectures for efficient computation.
   - title: Spiking Neural Networks
     description: Advancing algorithms and architectures for spiking neural networks and event-driven computing.
-  - title: Optimization Algorithms
-    description: Creating novel optimization methods inspired by neuromorphic principles and biological systems.
+  - title: Optimisation Algorithms
+    description: Creating novel optimisation methods inspired by neuromorphic principles and biological systems.
 
 # Social links
 social:

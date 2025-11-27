@@ -2,19 +2,19 @@
 # Main stylesheet - imports all partials
 ---
 
-// Variables - customize colors, fonts, and layout
-@import "variables";
+// Variables - customise colours, fonts, and layout
+@use "variables" as *;
 
 // Base styles - reset and typography
-@import "base";
+@use "base";
 
 // Components
-@import "header";
-@import "hero";
-@import "about";
-@import "research";
-@import "collaborators";
-@import "footer";
+@use "header";
+@use "hero";
+@use "about";
+@use "research";
+@use "collaborators";
+@use "footer";
 
 // Responsive design
-@import "responsive";
+@use "responsive";

@@ -1,3 +1,5 @@
+@use "variables" as *;
+
 // Collaborators section styles
 #collaborators {
     background-color: $light-bg;
@@ -10,10 +12,10 @@
 }
 
 .collaborators-info {
-    margin-top: 1.5rem;
-    padding: 1rem;
+    margin-top: 1.25rem;
+    padding: 0.85rem;
     background-color: $white;
-    border-left: 4px solid $secondary-color;
+    border-left: 3px solid $secondary-color;
     border-radius: 4px;
     
     a {
