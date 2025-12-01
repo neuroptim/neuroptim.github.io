@@ -12,9 +12,12 @@
 @use "header";
 @use "hero";
 @use "about";
-@use "research";
+@use "tools";
 @use "collaborators";
 @use "footer";
+@use "notifications";
+@use "publications";
+@use "publication-detail";
 
 // Responsive design
 @use "responsive";

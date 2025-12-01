@@ -1,0 +1,11 @@
+<section id="tools">
+    <h2>Tools</h2>
+    <div class="tools-grid">
+        {% for tool in site.tools %}
+        <div class="tool-card">
+            <h3>{{ tool.title }}</h3>
+            <p>{{ tool.description }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</section>

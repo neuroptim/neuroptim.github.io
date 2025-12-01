@@ -1,0 +1,58 @@
+---
+layout: default
+---
+
+<article class="publication-detail">
+    <div class="pub-detail-header">
+        <h1>{{ page.title }}</h1>
+        
+        <div class="pub-detail-meta">
+            <span class="pub-type">{{ page.type }}</span>
+            <span class="pub-year">{{ page.year }}</span>
+        </div>
+        
+        <p class="pub-authors">{{ page.authors }}</p>
+        <p class="pub-venue">{{ page.venue }}{% if page.location %}, {{ page.location }}{% endif %}</p>
+        
+        {% if page.doi or page.arxiv or page.pdf or page.slides %}
+        <div class="pub-detail-links">
+            {% if page.doi %}
+            <a href="https://doi.org/{{ page.doi }}" target="_blank" rel="noopener noreferrer" class="pub-link">
+                <span>📄</span> DOI
+            </a>
+            {% endif %}
+            {% if page.arxiv %}
+            <a href="https://arxiv.org/abs/{{ page.arxiv }}" target="_blank" rel="noopener noreferrer" class="pub-link">
+                <span>📝</span> arXiv
+            </a>
+            {% endif %}
+            {% if page.pdf %}
+            <a href="{{ page.pdf | relative_url }}" target="_blank" class="pub-link">
+                <span>📑</span> PDF
+            </a>
+            {% endif %}
+            {% if page.slides %}
+            <a href="{{ page.slides | relative_url }}" target="_blank" class="pub-link">
+                <span>📊</span> Slides
+            </a>
+            {% endif %}
+        </div>
+        {% endif %}
+        
+        {% if page.tags %}
+        <div class="pub-detail-tags">
+            {% for tag in page.tags %}
+            <span class="tag">{{ tag }}</span>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+    
+    <div class="pub-detail-content">
+        {{ content }}
+    </div>
+    
+    <div class="pub-detail-footer">
+        <a href="{{ '/research/' | relative_url }}" class="back-link">← Back to Research</a>
+    </div>
+</article>

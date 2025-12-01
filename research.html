@@ -4,14 +4,117 @@ title: Research
 permalink: /research/
 ---
 
-<section class="page-section">
-    <h1>Research Areas</h1>
-    <div class="research-grid">
-        {% for area in site.research_areas %}
-        <div class="research-card">
-            <h3>{{ area.title }}</h3>
-            <p>{{ area.description }}</p>
+<section class="page-section publications-section">
+    <div class="section-header">
+        <h2>Publications & Output</h2>
+        <div class="view-controls">
+            <button class="view-btn active" data-view="grid" aria-label="Grid view">
+                <span>⊞</span>
+            </button>
+            <button class="view-btn" data-view="list" aria-label="List view">
+                <span>☰</span>
+            </button>
         </div>
+    </div>
+    
+    <div class="filter-tabs">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="publication">Publications</button>
+        <button class="filter-btn" data-filter="preprint">Pre-prints</button>
+        <button class="filter-btn" data-filter="presentation">Presentations</button>
+    </div>
+    
+    <div class="publications-container" data-view="grid">
+        {% if site.publications %}
+        {% assign sorted_pubs = site.publications | sort: 'year' | sort: 'month' | reverse %}
+        {% for pub in sorted_pubs %}
+        <article class="publication-card" data-category="{{ pub.category }}" data-year="{{ pub.year }}">
+            <div class="pub-metadata">
+                <span class="pub-type">{{ pub.type }}</span>
+                <span class="pub-year">{{ pub.year }}</span>
+            </div>
+            
+            <h3 class="pub-title">
+                {% if pub.url %}
+                <a href="{{ pub.url | relative_url }}">{{ pub.title }}</a>
+                {% else %}
+                {{ pub.title }}
+                {% endif %}
+            </h3>
+            
+            <p class="pub-authors">{{ pub.authors }}</p>
+            <p class="pub-venue">{{ pub.venue }}{% if pub.location %}, {{ pub.location }}{% endif %}</p>
+            
+            <div class="pub-tldr">
+                {{ pub.tldr | strip_html | truncatewords: 30 }}
+            </div>
+            
+            {% if pub.tags %}
+            <div class="pub-tags">
+                {% for tag in pub.tags %}
+                <span class="tag">{{ tag }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
+            
+            <div class="pub-links">
+                {% if pub.doi %}
+                <a href="https://doi.org/{{ pub.doi }}" target="_blank" rel="noopener noreferrer">DOI</a>
+                {% endif %}
+                {% if pub.arxiv %}
+                <a href="https://arxiv.org/abs/{{ pub.arxiv }}" target="_blank" rel="noopener noreferrer">arXiv</a>
+                {% endif %}
+                {% if pub.pdf %}
+                <a href="{{ pub.pdf | relative_url }}" target="_blank">PDF</a>
+                {% endif %}
+                {% if pub.slides %}
+                <a href="{{ pub.slides | relative_url }}" target="_blank">Slides</a>
+                {% endif %}
+                {% if pub.url %}
+                <a href="{{ pub.url | relative_url }}">Details</a>
+                {% endif %}
+        </article>
         {% endfor %}
+        {% else %}
+        <p>No publications available yet.</p>
+        {% endif %}
     </div>
 </section>
+</section>
+
+<script>
+// View toggle functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const viewBtns = document.querySelectorAll('.view-btn');
+    const container = document.querySelector('.publications-container');
+    
+    viewBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            viewBtns.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            const view = this.dataset.view;
+            container.dataset.view = view;
+        });
+    });
+    
+    // Filter functionality
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.publication-card');
+    
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            const filter = this.dataset.filter;
+            
+            cards.forEach(card => {
+                if (filter === 'all' || card.dataset.category === filter) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+});
+</script>

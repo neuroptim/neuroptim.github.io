@@ -1,7 +1,7 @@
 @use "variables" as *;
 
 // Header and Navigation styles
-header {
+body > header {
     background: linear-gradient(135deg, $primary-color 0%, $secondary-color 100%);
     padding: 1rem 2rem;
     position: fixed;

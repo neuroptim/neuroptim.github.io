@@ -1,0 +1,50 @@
+---
+layout: default
+title: Tools
+permalink: /tools/
+---
+
+<section class="section">
+    <div class="container">
+        <div class="notification notification-warning">
+            <p><strong>Note:</strong> This site is currently under construction.</p>
+        </div>
+    </div>
+</section>
+
+
+<section class="page-section">
+    <h1>Tools & Resources</h1>
+    <p>Explore frameworks, hardware devices, and resources for neuromorphic computing and optimisation.</p>
+    
+    <div class="tools-grid">
+        {% if site.tools %}
+        {% assign sorted_tools = site.tools | sort: 'order' %}
+        {% for tool in sorted_tools %}
+        <div class="tool-card">
+            {% if tool.icon %}
+            <div class="tool-icon">{{ tool.icon }}</div>
+            {% endif %}
+            
+            <h3>
+                <a href="{{ tool.url | relative_url }}">{{ tool.title }}</a>
+            </h3>
+            
+            <p>{{ tool.excerpt | strip_html | truncatewords: 20 }}</p>
+            
+            {% if tool.tags %}
+            <div class="tool-tags">
+                {% for tag in tool.tags %}
+                <span class="tag">{{ tag }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
+            
+            <a href="{{ tool.url | relative_url }}" class="read-more">Learn more →</a>
+        </div>
+        {% endfor %}
+        {% else %}
+        <p>No tools available yet. Check back soon!</p>
+        {% endif %}
+    </div>
+</section>

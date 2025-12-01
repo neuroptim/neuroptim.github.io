@@ -8,6 +8,17 @@ baseurl: ""
 markdown: kramdown
 highlighter: rouge
 
+# Collections
+collections:
+  tools:
+    output: true
+    permalink: /tools/:name/
+  collaborators:
+    output: false
+  publications:
+    output: true
+    permalink: /research/publications/:name/
+
 # Theme configuration
 theme_color:
   primary: "#2c3e50"
@@ -20,19 +31,12 @@ navigation:
     url: /about/
   - title: Research
     url: /research/
+  - title: Tools
+    url: /tools/
   - title: Collaborators
     url: /collaborators/
   - title: Contact
     url: /contact/
-
-# Research areas (easily customisable)
-research_areas:
-  - title: Neuromorphic Hardware
-    description: Developing and optimising brain-inspired hardware architectures for efficient computation.
-  - title: Spiking Neural Networks
-    description: Advancing algorithms and architectures for spiking neural networks and event-driven computing.
-  - title: Optimisation Algorithms
-    description: Creating novel optimisation methods inspired by neuromorphic principles and biological systems.
 
 # Social links
 social:

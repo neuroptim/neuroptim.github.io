@@ -11,6 +11,127 @@
     }
 }
 
+.collaborators-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin: 2rem 0;
+    
+    @media (max-width: $tablet) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.collaborator-card {
+    background-color: $white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    
+    .collaborator-header {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        margin-bottom: 1rem;
+        
+        .collaborator-photo {
+            flex-shrink: 0;
+            
+            img {
+                width: 100px;
+                height: 100px;
+                object-fit: cover;
+                border-radius: 50%;
+                border: 3px solid $light-bg;
+            }
+        }
+        
+        .collaborator-basic {
+            flex: 1;
+            
+            h3 {
+                color: $primary-color;
+                margin-bottom: 0.5rem;
+                margin-top: 0;
+                font-size: 1.25rem;
+            }
+            
+            .collaborator-role {
+                font-weight: 600;
+                color: $secondary-color;
+                margin-bottom: 0.25rem;
+            }
+            
+            .collaborator-institution {
+                color: #666;
+                font-size: 0.95rem;
+                margin-bottom: 0;
+            }
+        }
+    }
+    
+    .collaborator-details {
+        .collaborator-bio {
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.5;
+            text-align: justify;
+        }
+        
+        .collaborator-interests {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+            
+            .interest-tag {
+                background-color: $light-bg;
+                color: $primary-color;
+                padding: 0.25rem 0.6rem;
+                border-radius: 4px;
+                font-size: 0.8rem;
+                font-weight: 500;
+            }
+        }
+        
+        .collaborator-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 0.75rem;
+            
+            a {
+                color: $secondary-color;
+                font-size: 0.9rem;
+                font-weight: 500;
+                text-decoration: none;
+                
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+    
+    @media (max-width: $mobile) {
+        .collaborator-header {
+            flex-direction: column;
+            text-align: center;
+            
+            .collaborator-photo img {
+                margin: 0 auto;
+            }
+        }
+    }
+}
+
 .collaborators-info {
     margin-top: 1.25rem;
     padding: 0.85rem;

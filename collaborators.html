@@ -6,7 +6,63 @@ permalink: /collaborators/
 
 <section class="page-section">
     <h1>Collaborators</h1>
-    <p>We work with researchers and institutions worldwide to advance neuromorphic optimisation. Our collaborative network includes experts from academia and industry.</p>
+    <!-- <p>We work with researchers and institutions worldwide to advance neuromorphic optimisation. Our collaborative network includes experts from academia and industry.</p> -->
+    
+    <div class="collaborators-grid">
+        {% for collaborator in site.collaborators %}
+        <div class="collaborator-card">
+            <div class="collaborator-header">
+                {% if collaborator.photo %}
+                <div class="collaborator-photo">
+                    <img src="{{ '/assets/images/collaborators/' | append: collaborator.photo | relative_url }}" alt="{{ collaborator.name }}">
+                </div>
+                {% endif %}
+                
+                <div class="collaborator-basic">
+                    <h3>{{ collaborator.name }}</h3>
+                    <p class="collaborator-role">{{ collaborator.role }}</p>
+                    <p class="collaborator-institution">{{ collaborator.institution }}</p>
+                </div>
+            </div>
+            
+            <div class="collaborator-details">
+                {% if collaborator.content and collaborator.content != '' %}
+                <p class="collaborator-bio">{{ collaborator.content | strip_html }}</p>
+                {% endif %}
+                
+                {% if collaborator.research_interests %}
+                <div class="collaborator-interests">
+                    {% for interest in collaborator.research_interests %}
+                    <span class="interest-tag">{{ interest }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+                
+                <div class="collaborator-links">
+                    {% if collaborator.website %}
+                    <a href="{{ collaborator.website }}" target="_blank" rel="noopener noreferrer">Website</a>
+                    {% endif %}
+                    {% if collaborator.orcid %}
+                    <a href="https://orcid.org/{{ collaborator.orcid }}" target="_blank" rel="noopener noreferrer">ORCID</a>
+                    {% endif %}
+                    {% if collaborator.linkedin %}
+                    <a href="{{ collaborator.linkedin }}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    {% endif %}
+                    {% if collaborator.gscholar %}
+                    <a href="{{ collaborator.gscholar }}" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+                    {% endif %}
+                    {% if collaborator.dblp %}
+                    <a href="{{ collaborator.dblp }}" target="_blank" rel="noopener noreferrer">DBLP</a>
+                    {% endif %}
+                    {% if collaborator.email %}
+                    <a href="mailto:{{ collaborator.email }}">Email</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    
     <div class="collaborators-info">
         <p>Interested in collaborating? <a href="{{ '/contact/' | relative_url }}">Get in touch with us</a> to learn more about partnership opportunities.</p>
     </div>
