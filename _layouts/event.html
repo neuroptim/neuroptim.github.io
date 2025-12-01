@@ -1,0 +1,73 @@
+---
+layout: default
+---
+
+{% assign today = 'now' | date: '%Y-%m-%d' %}
+{% assign event_date = page.date | date: '%Y-%m-%d' %}
+
+<article class="event-detail">
+    <div class="event-detail-header">
+        <div class="event-detail-date">
+            <span class="day">{{ page.date | date: '%d' }}</span>
+            <span class="month">{{ page.date | date: '%B' }}</span>
+            <span class="year">{{ page.date | date: '%Y' }}</span>
+        </div>
+        
+        <div class="event-detail-info">
+            <div class="event-detail-meta">
+                <span class="event-type {{ page.category }}">{{ page.type }}</span>
+                {% if event_date >= today %}
+                <span class="event-status upcoming">Upcoming</span>
+                {% else %}
+                <span class="event-status past">Past</span>
+                {% endif %}
+            </div>
+            
+            <h1>{{ page.title }}</h1>
+            
+            {% if page.venue %}
+            <p class="event-venue">📍 {{ page.venue }}{% if page.location %}, {{ page.location }}{% endif %}</p>
+            {% endif %}
+            
+            {% if page.deadline %}
+            <p class="event-deadline">📅 Submission Deadline: <strong>{{ page.deadline | date: '%d %B %Y' }}</strong></p>
+            {% endif %}
+        </div>
+    </div>
+    
+    {% if page.website or page.submission or page.registration %}
+    <div class="event-detail-actions">
+        {% if page.website %}
+        <a href="{{ page.website }}" target="_blank" rel="noopener noreferrer" class="event-link primary">
+            🌐 Official Website
+        </a>
+        {% endif %}
+        {% if page.submission %}
+        <a href="{{ page.submission }}" target="_blank" rel="noopener noreferrer" class="event-link">
+            📝 Submit Paper
+        </a>
+        {% endif %}
+        {% if page.registration %}
+        <a href="{{ page.registration }}" target="_blank" rel="noopener noreferrer" class="event-link">
+            🎟️ Register
+        </a>
+        {% endif %}
+    </div>
+    {% endif %}
+    
+    {% if page.tags %}
+    <div class="event-detail-tags">
+        {% for tag in page.tags %}
+        <span class="tag">{{ tag }}</span>
+        {% endfor %}
+    </div>
+    {% endif %}
+    
+    <div class="event-detail-content">
+        {{ content }}
+    </div>
+    
+    <div class="event-detail-footer">
+        <a href="{{ '/events/' | relative_url }}" class="back-link">← Back to Events</a>
+    </div>
+</article>

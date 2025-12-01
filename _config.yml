@@ -7,6 +7,7 @@ baseurl: ""
 # Build settings
 markdown: kramdown
 highlighter: rouge
+future: true
 
 # Collections
 collections:
@@ -18,6 +19,9 @@ collections:
   publications:
     output: true
     permalink: /research/publications/:name/
+  events:
+    output: true
+    permalink: /events/:name/
 
 # Theme configuration
 theme_color:
@@ -31,6 +35,8 @@ navigation:
     url: /about/
   - title: Research
     url: /research/
+  - title: Events
+    url: /events/
   - title: Tools
     url: /tools/
   - title: Collaborators

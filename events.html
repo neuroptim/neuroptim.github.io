@@ -1,0 +1,212 @@
+---
+layout: default
+title: Events
+permalink: /events/
+---
+
+<section class="page-section events-section">
+    <div class="section-header">
+        <h2>Events</h2>
+        <div class="view-controls">
+            <button class="view-btn" data-view="grid" aria-label="Grid view">
+                <span>⊞</span>
+            </button>
+            <button class="view-btn active" data-view="list" aria-label="List view">
+                <span>☰</span>
+            </button>
+        </div>
+    </div>
+    
+    <div class="filter-tabs">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="conference">Conferences</button>
+        <button class="filter-btn" data-filter="workshop">Workshops</button>
+        <button class="filter-btn" data-filter="special-session">Special Sessions</button>
+        <button class="filter-btn" data-filter="tutorial">Tutorials</button>
+    </div>
+
+    {% assign today = site.time | date: '%s' %}
+    {% assign upcoming_events = "" | split: "" %}
+    {% assign past_events = "" | split: "" %}
+    
+    {% for event in site.events %}
+        {% assign event_date = event.date | date: '%s' %}
+        {% if event_date >= today %}
+            {% assign upcoming_events = upcoming_events | push: event %}
+        {% else %}
+            {% assign past_events = past_events | push: event %}
+        {% endif %}
+    {% endfor %}
+    
+    {% assign upcoming_events = upcoming_events | sort: 'date' %}
+    {% assign past_events = past_events | sort: 'date' | reverse %}
+
+    <!-- Upcoming Events -->
+    <div class="events-group">
+        <h3 class="events-group-title upcoming">
+            <span class="status-indicator upcoming"></span>
+            Upcoming Events
+        </h3>
+        <div class="events-container" data-view="list" id="upcoming-events">
+            {% if upcoming_events.size > 0 %}
+            {% for event in upcoming_events %}
+            <article class="event-card" data-category="{{ event.category }}" data-date="{{ event.date }}">
+                <div class="event-date-badge">
+                    <span class="event-day">{{ event.date | date: '%d' }}</span>
+                    <span class="event-month">{{ event.date | date: '%b' }}</span>
+                    <span class="event-year">{{ event.date | date: '%Y' }}</span>
+                </div>
+                
+                <div class="event-content">
+                    <div class="event-metadata">
+                        <span class="event-type {{ event.category }}">{{ event.type }}</span>
+                        {% if event.deadline %}
+                        <span class="event-deadline">Deadline: {{ event.deadline | date: '%d %b %Y' }}</span>
+                        {% endif %}
+                    </div>
+                    
+                    <h3 class="event-title">
+                        {% if event.url %}
+                        <a href="{{ event.url | relative_url }}">{{ event.title }}</a>
+                        {% else %}
+                        {{ event.title }}
+                        {% endif %}
+                    </h3>
+                    
+                    {% if event.venue %}
+                    <p class="event-venue">📍 {{ event.venue }}{% if event.location %}, {{ event.location }}{% endif %}</p>
+                    {% endif %}
+                    
+                    <div class="event-description">
+                        {{ event.excerpt | strip_html | truncatewords: 25 }}
+                    </div>
+                    
+                    {% if event.tags %}
+                    <div class="event-tags">
+                        {% for tag in event.tags %}
+                        <span class="tag">{{ tag }}</span>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    
+                    <div class="event-links">
+                        {% if event.website %}
+                        <a href="{{ event.website }}" target="_blank" rel="noopener noreferrer">Website</a>
+                        {% endif %}
+                        {% if event.submission %}
+                        <a href="{{ event.submission }}" target="_blank" rel="noopener noreferrer">Submit</a>
+                        {% endif %}
+                        {% if event.url %}
+                        <a href="{{ event.url | relative_url }}">Details</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </article>
+            {% endfor %}
+            {% else %}
+            <p class="no-events">No upcoming events at the moment. Check back soon!</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Past Events -->
+    <div class="events-group">
+        <h3 class="events-group-title past">
+            <span class="status-indicator past"></span>
+            Past Events
+        </h3>
+        <div class="events-container" data-view="list" id="past-events">
+            {% if past_events.size > 0 %}
+            {% for event in past_events %}
+            <article class="event-card past" data-category="{{ event.category }}" data-date="{{ event.date }}">
+                <div class="event-date-badge">
+                    <span class="event-day">{{ event.date | date: '%d' }}</span>
+                    <span class="event-month">{{ event.date | date: '%b' }}</span>
+                    <span class="event-year">{{ event.date | date: '%Y' }}</span>
+                </div>
+                
+                <div class="event-content">
+                    <div class="event-metadata">
+                        <span class="event-type {{ event.category }}">{{ event.type }}</span>
+                    </div>
+                    
+                    <h3 class="event-title">
+                        {% if event.url %}
+                        <a href="{{ event.url | relative_url }}">{{ event.title }}</a>
+                        {% else %}
+                        {{ event.title }}
+                        {% endif %}
+                    </h3>
+                    
+                    {% if event.venue %}
+                    <p class="event-venue">📍 {{ event.venue }}{% if event.location %}, {{ event.location }}{% endif %}</p>
+                    {% endif %}
+                    
+                    <div class="event-description">
+                        {{ event.excerpt | strip_html | truncatewords: 25 }}
+                    </div>
+                    
+                    {% if event.tags %}
+                    <div class="event-tags">
+                        {% for tag in event.tags %}
+                        <span class="tag">{{ tag }}</span>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    
+                    <div class="event-links">
+                        {% if event.website %}
+                        <a href="{{ event.website }}" target="_blank" rel="noopener noreferrer">Website</a>
+                        {% endif %}
+                        {% if event.url %}
+                        <a href="{{ event.url | relative_url }}">Details</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </article>
+            {% endfor %}
+            {% else %}
+            <p class="no-events">No past events recorded yet.</p>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // View toggle functionality
+    const viewBtns = document.querySelectorAll('.view-btn');
+    const containers = document.querySelectorAll('.events-container');
+    
+    viewBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            viewBtns.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            const view = this.dataset.view;
+            containers.forEach(container => {
+                container.dataset.view = view;
+            });
+        });
+    });
+    
+    // Filter functionality
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.event-card');
+    
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            const filter = this.dataset.filter;
+            
+            cards.forEach(card => {
+                if (filter === 'all' || card.dataset.category === filter) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+});
+</script>
