@@ -2,7 +2,7 @@
 
 // Header and Navigation styles
 header {
-    background-color: $primary-color;
+    background: linear-gradient(135deg, $primary-color 0%, $secondary-color 100%);
     padding: 1rem 2rem;
     position: fixed;
     width: 100%;
@@ -25,10 +25,17 @@ nav {
     a {
         color: $white;
         text-decoration: none;
+        display: flex;
+        align-items: center;
         
         &:hover {
             color: $secondary-color;
         }
+    }
+    
+    .logo-img {
+        height: 40px;
+        width: auto;
     }
 }
 
@@ -41,6 +48,9 @@ nav {
         color: $white;
         text-decoration: none;
         transition: color 0.3s ease;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.3),
+             0 0 20px $secondary-color,
+             0 0 30px $secondary-color;
         
         &:hover {
             color: $secondary-color;

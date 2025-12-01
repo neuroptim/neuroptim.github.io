@@ -2,20 +2,33 @@
 
 // Hero section styles
 #hero {
-    background: linear-gradient(135deg, $primary-color 0%, $secondary-color 100%);
+    //background: linear-gradient(180deg, $secondary-color 0%, $white 100%);
+    background-image: 
+        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,.05) 2px, rgba(255,255,255,.05) 4px),
+        repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(255,255,255,.05) 2px, rgba(255,255,255,.05) 4px);
+        //linear-gradient(180deg, $secondary-color 0%, $white 100%);
     color: $white;
     text-align: center;
     padding: 3.5rem 1.5rem;
     max-width: none;
     
+    .hero-logo {
+        max-width: 500px;
+        height: auto;
+        margin: 0 auto 0.1rem auto;
+        display: block;
+    }
+    
     h1 {
         font-size: 2.25rem;
         margin-bottom: 0.75rem;
+        //color: $white;
     }
     
     p {
         font-size: 1.15rem;
         opacity: 0.9;
         margin-bottom: 0;
+        color: $secondary-color;
     }
 }
