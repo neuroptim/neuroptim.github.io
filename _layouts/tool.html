@@ -1,0 +1,96 @@
+---
+layout: default
+---
+
+<article class="tool-detail">
+    <div class="tool-detail-header">
+        {% if page.image %}
+        <img src="{{ page.image }}" alt="{{ page.title }}" class="tool-image-large">
+        {% elsif page.icon %}
+        <div class="tool-icon-large">{{ page.icon }}</div>
+        {% endif %}
+        
+        <div class="tool-header-info">
+            <div class="tool-detail-meta">
+                {% if page.category %}
+                <span class="tool-type {{ page.category }}">{{ page.category | capitalize }}</span>
+                {% endif %}
+                {% if page.version %}
+                <span class="tool-version">v{{ page.version }}</span>
+                {% endif %}
+                {% if page.license %}
+                <span class="tool-license">{{ page.license }}</span>
+                {% endif %}
+            </div>
+            
+            <h1>{{ page.title }}</h1>
+            
+            {% if page.description %}
+            <p class="tool-description">{{ page.description }}</p>
+            {% endif %}
+        </div>
+    </div>
+    
+    {% if page.github or page.documentation or page.pypi or page.conda or page.website or page.zenodo or page.arxiv %}
+    <div class="tool-detail-links">
+        {% if page.github %}
+        <a href="{{ page.github }}" target="_blank" rel="noopener noreferrer" class="tool-link github">
+            <span>🐙</span> GitHub
+        </a>
+        {% endif %}
+        {% if page.documentation %}
+        <a href="{{ page.documentation }}" target="_blank" rel="noopener noreferrer" class="tool-link docs">
+            <span>📖</span> Documentation
+        </a>
+        {% endif %}
+        {% if page.zenodo %}
+        <a href="{{ page.zenodo }}" target="_blank" rel="noopener noreferrer" class="tool-link zenodo">
+            <span>📊</span> Zenodo
+        </a>
+        {% endif %}
+        {% if page.arxiv %}
+        <a href="{{ page.arxiv }}" target="_blank" rel="noopener noreferrer" class="tool-link arxiv">
+            <span>📄</span> arXiv
+        </a>
+        {% endif %}
+        {% if page.pypi %}
+        <a href="{{ page.pypi }}" target="_blank" rel="noopener noreferrer" class="tool-link pypi">
+            <span>📦</span> PyPI
+        </a>
+        {% endif %}
+        {% if page.conda %}
+        <a href="{{ page.conda }}" target="_blank" rel="noopener noreferrer" class="tool-link conda">
+            <span>🐍</span> Conda
+        </a>
+        {% endif %}
+        {% if page.website %}
+        <a href="{{ page.website }}" target="_blank" rel="noopener noreferrer" class="tool-link website">
+            <span>🌐</span> Website
+        </a>
+        {% endif %}
+    </div>
+    {% endif %}
+    
+    {% if page.install %}
+    <div class="tool-install">
+        <h3>Installation</h3>
+        <pre><code>{{ page.install }}</code></pre>
+    </div>
+    {% endif %}
+    
+    {% if page.tags %}
+    <div class="tool-detail-tags">
+        {% for tag in page.tags %}
+        <span class="tag">{{ tag }}</span>
+        {% endfor %}
+    </div>
+    {% endif %}
+    
+    <div class="tool-detail-content">
+        {{ content }}
+    </div>
+    
+    <div class="tool-detail-footer">
+        <a href="{{ '/tools/' | relative_url }}" class="back-link">← Back to Tools</a>
+    </div>
+</article>

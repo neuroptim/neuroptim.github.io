@@ -3,7 +3,7 @@
 // Tools section styles - for frameworks and hardware devices
 .tools-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 1.5rem;
     margin-top: 1.5rem;
     
@@ -19,24 +19,377 @@
     padding: 1.25rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
     
     &:hover {
         transform: translateY(-4px);
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
     
-    .tool-icon {
-        font-size: 2rem;
-        margin-bottom: 0.5rem;
+    .tool-card-header {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        margin-bottom: 0.75rem;
     }
     
-    h3 {
-        color: $secondary-color;
-        margin-bottom: 0.6rem;
-        font-size: 1.15rem;
+    .tool-icon {
+        font-size: 2.5rem;
+        line-height: 1;
+    }
+    
+    .tool-image {
+        width: 50px;
+        height: 50px;
+        object-fit: contain;
+        border-radius: 6px;
+    }
+    
+    .tool-card-info {
+        flex: 1;
+        
+        h3 {
+            margin: 0 0 0.25rem;
+            font-size: 1.15rem;
+            border: none;
+            padding: 0;
+            
+            a {
+                color: $primary-color;
+                text-decoration: none;
+                
+                &:hover {
+                    color: $secondary-color;
+                    text-decoration: underline;
+                }
+            }
+        }
+        
+        .tool-category {
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+            display: inline-block;
+            
+            &.framework {
+                background: #3498db;
+                color: $white;
+            }
+            
+            &.hardware {
+                background: #e67e22;
+                color: $white;
+            }
+            
+            &.library {
+                background: #9b59b6;
+                color: $white;
+            }
+            
+            &.dataset {
+                background: #1abc9c;
+                color: $white;
+            }
+        }
+    }
+    
+    .tool-excerpt {
+        margin-bottom: 0.75rem;
+        font-size: 0.9rem;
+        color: $text-color;
+        flex: 1;
+    }
+    
+    .tool-quick-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 0.75rem;
         
         a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-size: 0.8rem;
             color: $secondary-color;
+            text-decoration: none;
+            padding: 0.25rem 0.5rem;
+            background: $light-bg;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+            
+            &:hover {
+                background: $secondary-color;
+                color: $white;
+            }
+        }
+    }
+    
+    .tool-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        margin-top: auto;
+        
+        .tag {
+            background-color: $light-bg;
+            color: $primary-color;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+    }
+}
+
+// Tool detail page
+.tool-detail {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    
+    .tool-detail-header {
+        display: flex;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+        padding-bottom: 1.5rem;
+        border-bottom: 2px solid $light-bg;
+        
+        @media (max-width: $tablet) {
+            flex-direction: column;
+            text-align: center;
+        }
+    }
+    
+    .tool-icon-large {
+        font-size: 4rem;
+        line-height: 1;
+    }
+    
+    .tool-image-large {
+        width: 80px;
+        height: 80px;
+        object-fit: contain;
+        border-radius: 8px;
+    }
+    
+    .tool-header-info {
+        flex: 1;
+        
+        h1 {
+            margin: 0.5rem 0;
+            font-size: 2rem;
+            border: none;
+            padding: 0;
+            display: block;
+        }
+        
+        .tool-description {
+            font-size: 1.1rem;
+            color: $text-muted;
+            margin: 0;
+        }
+    }
+    
+    .tool-detail-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        
+        @media (max-width: $tablet) {
+            justify-content: center;
+        }
+        
+        .tool-type {
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.3rem 0.75rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+            
+            &.framework { background: #3498db; color: $white; }
+            &.hardware { background: #e67e22; color: $white; }
+            &.library { background: #9b59b6; color: $white; }
+            &.dataset { background: #1abc9c; color: $white; }
+        }
+        
+        .tool-version {
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.3rem 0.75rem;
+            border-radius: 4px;
+            background: $light-bg;
+            color: $primary-color;
+        }
+        
+        .tool-license {
+            font-size: 0.8rem;
+            padding: 0.3rem 0.75rem;
+            border-radius: 4px;
+            background: $light-bg;
+            color: $text-muted;
+        }
+    }
+    
+    .tool-detail-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-bottom: 1.5rem;
+        
+        .tool-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1rem;
+            border: 2px solid;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            
+            span {
+                font-size: 1.1rem;
+            }
+            
+            &.github {
+                border-color: #333;
+                color: #333;
+                &:hover { background: #333; color: $white; }
+            }
+            
+            &.docs {
+                border-color: #2980b9;
+                color: #2980b9;
+                &:hover { background: #2980b9; color: $white; }
+            }
+            
+            &.pypi {
+                border-color: #3775a9;
+                color: #3775a9;
+                &:hover { background: #3775a9; color: $white; }
+            }
+            
+            &.conda {
+                border-color: #44a833;
+                color: #44a833;
+                &:hover { background: #44a833; color: $white; }
+            }
+            
+            &.website {
+                border-color: $secondary-color;
+                color: $secondary-color;
+                &:hover { background: $secondary-color; color: $white; }
+            }
+            
+            &.zenodo {
+                border-color: #0d6efd;
+                color: #0d6efd;
+                &:hover { background: #0d6efd; color: $white; }
+            }
+            
+            &.arxiv {
+                border-color: #b31b1b;
+                color: #b31b1b;
+                &:hover { background: #b31b1b; color: $white; }
+            }
+        }
+    }
+    
+    .tool-install {
+        background: #2d2d2d;
+        border-radius: 8px;
+        padding: 1rem 1.25rem;
+        margin-bottom: 1.5rem;
+        
+        h3 {
+            color: #aaa;
+            font-size: 0.85rem;
+            margin: 0 0 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border: none;
+            padding: 0;
+        }
+        
+        pre {
+            margin: 0;
+            background: transparent;
+            padding: 0;
+            
+            code {
+                color: #f8f8f2;
+                font-size: 0.95rem;
+                background: transparent;
+            }
+        }
+    }
+    
+    .tool-detail-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 2rem;
+        
+        .tag {
+            background: $light-bg;
+            color: $primary-color;
+            padding: 0.35rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+        }
+    }
+    
+    .tool-detail-content {
+        line-height: 1.8;
+        
+        h2, h3 {
+            color: $primary-color;
+            margin-top: 2rem;
+            border: none;
+            padding: 0;
+        }
+        
+        h2 { font-size: 1.5rem; }
+        h3 { font-size: 1.2rem; }
+        
+        ul, ol {
+            margin: 1rem 0 1rem 1.5rem;
+        }
+        
+        code {
+            background: $light-bg;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+        
+        pre {
+            background: #2d2d2d;
+            padding: 1rem;
+            border-radius: 6px;
+            overflow-x: auto;
+            
+            code {
+                background: transparent;
+                color: #f8f8f2;
+                padding: 0;
+            }
+        }
+    }
+    
+    .tool-detail-footer {
+        margin-top: 3rem;
+        padding-top: 1.5rem;
+        border-top: 2px solid $light-bg;
+        
+        .back-link {
+            color: $secondary-color;
+            font-weight: 600;
             text-decoration: none;
             
             &:hover {
@@ -44,38 +397,34 @@
             }
         }
     }
-    
-    p {
-        margin-bottom: 0.75rem;
-        font-size: 0.95rem;
-    }
-    
-    .read-more {
-        display: inline-block;
-        margin-top: 0.5rem;
-        color: $secondary-color;
-        font-size: 0.9rem;
-        font-weight: 500;
-        text-decoration: none;
-        
-        &:hover {
-            text-decoration: underline;
-        }
-    }
-    
-    .tool-tags {
+}
+
+// Filter tabs for tools page
+.tools-section {
+    .filter-tabs {
         display: flex;
         flex-wrap: wrap;
         gap: 0.5rem;
-        margin-top: 0.75rem;
+        margin-bottom: 1.5rem;
         
-        .tag {
-            background-color: $light-bg;
-            color: $primary-color;
-            padding: 0.25rem 0.6rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: 500;
+        .filter-btn {
+            background: $white;
+            border: 2px solid $light-bg;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            
+            &:hover {
+                border-color: $secondary-color;
+            }
+            
+            &.active {
+                background: $secondary-color;
+                color: $white;
+                border-color: $secondary-color;
+            }
         }
     }
 }

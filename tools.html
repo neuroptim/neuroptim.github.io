@@ -4,33 +4,55 @@ title: Tools
 permalink: /tools/
 ---
 
-<section class="section">
-    <div class="container">
-        <div class="notification notification-warning">
-            <p><strong>Note:</strong> This site is currently under construction.</p>
-        </div>
-    </div>
-</section>
-
-
-<section class="page-section">
+<section class="page-section tools-section">
     <h1>Tools & Resources</h1>
-    <p>Explore frameworks, hardware devices, and resources for neuromorphic computing and optimisation.</p>
+    <p>Explore frameworks, libraries, and hardware resources for neuromorphic computing and optimisation.</p>
+    
+    <div class="filter-tabs">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="framework">Frameworks</button>
+        <button class="filter-btn" data-filter="library">Libraries</button>
+        <button class="filter-btn" data-filter="hardware">Hardware</button>
+        <button class="filter-btn" data-filter="dataset">Datasets</button>
+    </div>
     
     <div class="tools-grid">
         {% if site.tools %}
         {% assign sorted_tools = site.tools | sort: 'order' %}
         {% for tool in sorted_tools %}
-        <div class="tool-card">
-            {% if tool.icon %}
-            <div class="tool-icon">{{ tool.icon }}</div>
+        <div class="tool-card" data-category="{{ tool.category }}">
+            <div class="tool-card-header">
+                {% if tool.image %}
+                <img src="{{ tool.image }}" alt="{{ tool.title }}" class="tool-image">
+                {% elsif tool.icon %}
+                <div class="tool-icon">{{ tool.icon }}</div>
+                {% endif %}
+                <div class="tool-card-info">
+                    <h3><a href="{{ tool.url | relative_url }}">{{ tool.title }}</a></h3>
+                    {% if tool.category %}
+                    <span class="tool-category {{ tool.category }}">{{ tool.category }}</span>
+                    {% endif %}
+                </div>
+            </div>
+            
+            <p class="tool-excerpt">{{ tool.description | default: tool.excerpt | strip_html | truncatewords: 25 }}</p>
+            
+            {% if tool.github or tool.documentation or tool.pypi or tool.zenodo %}
+            <div class="tool-quick-links">
+                {% if tool.github %}
+                <a href="{{ tool.github }}" target="_blank" rel="noopener noreferrer">🐙 GitHub</a>
+                {% endif %}
+                {% if tool.documentation %}
+                <a href="{{ tool.documentation }}" target="_blank" rel="noopener noreferrer">📖 Docs</a>
+                {% endif %}
+                {% if tool.zenodo %}
+                <a href="{{ tool.zenodo }}" target="_blank" rel="noopener noreferrer">📊 Zenodo</a>
+                {% endif %}
+                {% if tool.pypi %}
+                <a href="{{ tool.pypi }}" target="_blank" rel="noopener noreferrer">📦 PyPI</a>
+                {% endif %}
+            </div>
             {% endif %}
-            
-            <h3>
-                <a href="{{ tool.url | relative_url }}">{{ tool.title }}</a>
-            </h3>
-            
-            <p>{{ tool.excerpt | strip_html | truncatewords: 20 }}</p>
             
             {% if tool.tags %}
             <div class="tool-tags">
@@ -39,8 +61,6 @@ permalink: /tools/
                 {% endfor %}
             </div>
             {% endif %}
-            
-            <a href="{{ tool.url | relative_url }}" class="read-more">Learn more →</a>
         </div>
         {% endfor %}
         {% else %}
@@ -48,3 +68,26 @@ permalink: /tools/
         {% endif %}
     </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.tool-card');
+    
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            const filter = this.dataset.filter;
+            
+            cards.forEach(card => {
+                if (filter === 'all' || card.dataset.category === filter) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+});
+</script>
