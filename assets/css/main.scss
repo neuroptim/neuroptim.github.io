@@ -1,5 +1,5 @@
 ---
-# Main stylesheet - imports all partials
+# Main stylesheet imports all partials
 ---
 
 // Variables - customise colours, fonts, and layout
@@ -11,6 +11,7 @@
 // Components
 @use "header";
 @use "hero";
+@use "home";
 @use "about";
 @use "tools";
 @use "collaborators";

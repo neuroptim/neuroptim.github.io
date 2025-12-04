@@ -1,0 +1,299 @@
+@use "variables" as *;
+@use "sass:color";
+
+// Introduction section
+.intro-section {
+    .intro-content {
+        padding: 0rem 0rem;
+        max-width: $max-width;
+        margin: 0 auto 2rem;
+        text-align: center;
+        
+        h2 {
+            font-size: 2rem;
+            color: $primary-color;
+            margin-bottom: 1.5rem;
+            border: none;
+            padding: 0;
+            text-align: center;
+        }
+        
+        .lead {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: $text-color;
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+        
+        p {
+            color: $text-muted;
+            line-height: 1.7;
+            text-align: justify;
+        }
+    }
+}
+
+// Highlight cards grid
+.highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.highlight-card {
+    background: $white;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+    
+    .highlight-icon {
+        font-size: 3rem;
+        display: block;
+        margin-bottom: 0rem;
+    }
+    
+    h3 {
+        font-size: 1.25rem;
+        color: $primary-color;
+        margin-bottom: 0.75rem;
+        margin-top: 0rem;
+        border: none;
+        padding: 0;
+    }
+    
+    p {
+        color: $text-muted;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin: 0;
+    }
+}
+
+// Recent sections (publications, tools, events)
+.recent-section {
+    h2 {
+        font-size: 1.75rem;
+        color: $primary-color;
+        margin-bottom: 1.5rem;
+        text-align: center;
+        border: none;
+        padding: 0;
+    }
+    
+    .section-footer {
+        text-align: center;
+        margin-top: 1.5rem;
+    }
+}
+
+// Tools section with alternate background
+.tools-home-section {
+    background: $light-bg;
+    border-radius: 12px;
+    padding: 2.5rem 2rem;
+    
+    .recent-card {
+        background: $white;
+    }
+}
+
+.recent-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.recent-card {
+    background: $white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    
+    .recent-type {
+        display: inline-block;
+        font-size: 0.7rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        padding: 0.25rem 0.6rem;
+        border-radius: 4px;
+        margin-bottom: 0.75rem;
+        
+        // Publication types
+        &.journal { background: #e8f5e9; color: #2e7d32; }
+        &.conference { background: #e3f2fd; color: #1565c0; }
+        &.preprint { background: #fff3e0; color: #ef6c00; }
+        &.book { background: #fce4ec; color: #c2185b; }
+        
+        // Tool categories
+        &.framework { background: #e3f2fd; color: #1565c0; }
+        &.dataset { background: #e0f2f1; color: #00796b; }
+        &.library { background: #f3e5f5; color: #7b1fa2; }
+        &.hardware { background: #fff3e0; color: #ef6c00; }
+        
+        // Event categories
+        &.conference { background: #e3f2fd; color: #1565c0; }
+        &.workshop { background: #f3e5f5; color: #7b1fa2; }
+        &.special-session { background: #e8f5e9; color: #2e7d32; }
+        &.tutorial { background: #fff8e1; color: #f9a825; }
+    }
+    
+    h3 {
+        font-size: 1.1rem;
+        margin: 0 0 0.5rem;
+        border: none;
+        padding: 0;
+        
+        a {
+            color: $primary-color;
+            text-decoration: none;
+            
+            &:hover {
+                color: $secondary-color;
+                text-decoration: underline;
+            }
+        }
+    }
+    
+    .recent-meta {
+        font-size: 0.85rem;
+        color: $text-muted;
+        margin: 0;
+    }
+    
+    .recent-excerpt {
+        font-size: 0.9rem;
+        color: $text-muted;
+        margin: 0;
+        line-height: 1.5;
+    }
+}
+
+.view-all-link {
+    display: inline-block;
+    color: $secondary-color;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 0.95rem;
+    
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.no-items {
+    text-align: center;
+    color: $text-muted;
+    font-style: italic;
+    padding: 2rem;
+}
+
+// Call to Action section
+.cta-home-section {
+    text-align: center;
+    background: linear-gradient(135deg, $primary-color 0%, color.adjust($primary-color, $lightness: -10%) 100%);
+    color: $white;
+    border-radius: 12px;
+    padding: 3rem 2rem;
+    
+    h2 {
+        color: $white;
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        border: none;
+        padding: 0;
+    }
+    
+    p {
+        font-size: 1.1rem;
+        opacity: 0.9;
+        max-width: 600px;
+        margin: 0 auto 2rem;
+    }
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.cta-btn {
+    display: inline-block;
+    padding: 0.875rem 2rem;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    
+    &.primary {
+        background: $white;
+        color: $primary-color;
+        
+        &:hover {
+            background: $light-bg;
+            transform: translateY(-2px);
+        }
+    }
+    
+    &.secondary {
+        background: transparent;
+        color: $white;
+        border: 2px solid $white;
+        
+        &:hover {
+            background: rgba($white, 0.1);
+            transform: translateY(-2px);
+        }
+    }
+}
+
+// Responsive adjustments
+@media (max-width: $tablet) {
+    .intro-section .intro-content {
+        h2 {
+            font-size: 1.75rem;
+        }
+        
+        .lead {
+            font-size: 1.1rem;
+        }
+    }
+    
+    .highlights-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .recent-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .tools-home-section,
+    .cta-home-section {
+        padding: 2rem 1.5rem;
+    }
+    
+    .cta-home-section {
+        h2 {
+            font-size: 1.5rem;
+        }
+    }
+}

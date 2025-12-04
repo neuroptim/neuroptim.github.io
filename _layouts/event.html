@@ -26,11 +26,17 @@ layout: default
             <h1>{{ page.title }}</h1>
             
             {% if page.venue %}
-            <p class="event-venue">📍 {{ page.venue }}{% if page.location %}, {{ page.location }}{% endif %}</p>
+            <p class="event-venue">
+                <!-- location icon -->
+                <?xml version="1.0" encoding="UTF-8"?><svg width="14px" height="14px" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="#1e4c15"><path d="M12 19C15.866 19 19 15.866 19 12C19 8.13401 15.866 5 12 5C8.13401 5 5 8.13401 5 12C5 15.866 8.13401 19 12 19Z" stroke="#1e4c15" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M12 19V21" stroke="#1e4c15" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M5 12H3" stroke="#1e4c15" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M12 5V3" stroke="#1e4c15" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M19 12H21" stroke="#1e4c15" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                         {{ page.venue }}{% if page.location %}, {{ page.location }}{% endif %}</p>
             {% endif %}
             
             {% if page.deadline %}
-            <p class="event-deadline">📅 Submission Deadline: <strong>{{ page.deadline | date: '%d %B %Y' }}</strong></p>
+            <p class="event-deadline">
+                <!-- calendar icon -->
+                <?xml version="1.0" encoding="UTF-8"?><svg width="14px" height="14px" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="#1e4c15"><path d="M15 4V2M15 4V6M15 4H10.5M3 10V19C3 20.1046 3.89543 21 5 21H19C20.1046 21 21 20.1046 21 19V10H3Z" stroke="#1e4c15" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M3 10V6C3 4.89543 3.89543 4 5 4H7" stroke="#1e4c15" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M7 2V6" stroke="#1e4c15" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M21 10V6C21 4.89543 20.1046 4 19 4H18.5" stroke="#1e4c15" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                 Submission Deadline: <strong>{{ page.deadline | date: '%d %B %Y' }}</strong></p>
             {% endif %}
         </div>
     </div>
@@ -39,17 +45,23 @@ layout: default
     <div class="event-detail-actions">
         {% if page.website %}
         <a href="{{ page.website }}" target="_blank" rel="noopener noreferrer" class="event-link primary">
-            🌐 Official Website
+            <!-- website icon -->
+            <?xml version="1.0" encoding="UTF-8"?><svg width="16px" height="16px" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="#ffffff"><path d="M22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M13 2.04932C13 2.04932 16 5.99994 16 11.9999" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M11 21.9506C11 21.9506 8 17.9999 8 11.9999C8 5.99994 11 2.04932 11 2.04932" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M2.62964 15.5H12" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M2.62964 8.5H21.3704" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M21.8789 17.9174C22.3727 18.2211 22.3423 18.9604 21.8337 19.0181L19.2671 19.309L18.1159 21.6213C17.8878 22.0795 17.1827 21.8552 17.0661 21.2873L15.8108 15.1713C15.7123 14.6913 16.1437 14.3892 16.561 14.646L21.8789 17.9174Z" stroke="#ffffff" stroke-width="1.5"></path></svg>
+             Official Website
         </a>
         {% endif %}
         {% if page.submission %}
         <a href="{{ page.submission }}" target="_blank" rel="noopener noreferrer" class="event-link">
-            📝 Submit Paper
+            <!-- submission icon -->
+            <?xml version="1.0" encoding="UTF-8"?><svg width="16px" height="16px" viewBox="0 0 24 24" stroke-width="1.5" fill="none" xmlns="http://www.w3.org/2000/svg" color="#1e4c15"><path d="M6 6L14 6" stroke="#1e4c15" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M6 10H18" stroke="#1e4c15" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M13 14L18 14" stroke="#1e4c15" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M13 18L18 18" stroke="#1e4c15" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M2 21.4V2.6C2 2.26863 2.26863 2 2.6 2H18.2515C18.4106 2 18.5632 2.06321 18.6757 2.17574L21.8243 5.32426C21.9368 5.43679 22 5.5894 22 5.74853V21.4C22 21.7314 21.7314 22 21.4 22H2.6C2.26863 22 2 21.7314 2 21.4Z" stroke="#1e4c15" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M6 18V14H9V18H6Z" stroke="#1e4c15" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M18 2V5.4C18 5.73137 18.2686 6 18.6 6H22" stroke="#1e4c15" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+             Submit Paper
         </a>
         {% endif %}
         {% if page.registration %}
         <a href="{{ page.registration }}" target="_blank" rel="noopener noreferrer" class="event-link">
-            🎟️ Register
+            <!-- registration icon -->
+            <?xml version="1.0" encoding="UTF-8"?><svg width="16px" height="16px" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="#1e4c15"><path d="M9 12H12M15 12H12M12 12V9M12 12V15" stroke="#1e4c15" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M21 3.6V20.4C21 20.7314 20.7314 21 20.4 21H3.6C3.26863 21 3 20.7314 3 20.4V3.6C3 3.26863 3.26863 3 3.6 3H20.4C20.7314 3 21 3.26863 21 3.6Z" stroke="#1e4c15" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+             Register
         </a>
         {% endif %}
     </div>
