@@ -78,8 +78,13 @@ main {
     padding: 0;
     max-width: 100%;
     
-    @media (max-width: $tablet) {
+    @media (max-width: $mobile) {
         margin-top: calc($header-height-mobile + 1rem);
+    }
+    
+    // When page has hero, remove main's margin (hero handles it)
+    &.has-hero {
+        margin-top: 0;
     }
     
     ul, ol {
