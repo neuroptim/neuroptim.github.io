@@ -6,7 +6,7 @@ category: special-session
 type: Special Session
 venue: "OLA'2026"
 location: "Chania, Crete, Greece"
-deadline: 2025-12-19
+deadline: 2026-01-16
 website: "https://ola2026.sciencesconf.org/"
 registration: "https://ola2026.sciencesconf.org/resource/page/id/8"
 submission: "https://ola2026.sciencesconf.org/resource/page/id/2"
