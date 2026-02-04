@@ -2,19 +2,20 @@
 layout: publication
 title: "NeurOptimiser: A General Framework for Neuromorphic Optimisation"
 authors: "Cruz-Duarte, J.M. & Talbi, E-G."
-year: 2025
-month: 8
+year: 2026
+month: 1
 category: presentation
 type: Conference Talk
-venue: "International Workshop on Big Optimization (WBO)"
+venue: "International Workshop on Big Optimization (WBO) 2025"
 location: "Catania, Italy"
 slides: "/assets/slides/WBO25-lr.pdf"
+doi: "10.1007/978-3-032-15455-2_1"
 tags:
   - Neuromorphic
   - Spiking Neural Network
   - Evolutionary Computing
   - Optimization
-tldr: "Presentation on the NeurOptimiser framework, where spike-driven heuristics generate emergent metaheuristic search."
+tldr: "This paper presents NeurOptimiser framework, where spike-driven heuristics generate emergent metaheuristic search."
 ---
 
 ## Abstract
