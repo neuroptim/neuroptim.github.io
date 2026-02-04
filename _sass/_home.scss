@@ -266,6 +266,57 @@
     }
 }
 
+// Partners section - full width like footer
+.partners-section {
+    background-color: $light-bg;
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    width: 100vw;
+    max-width: none;
+    
+    h2 {
+        font-size: 1.5rem;
+        color: $primary-color;
+        margin-bottom: 2rem;
+        border: none;
+        padding: 0;
+    }
+    
+    .partners-logos {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 3rem;
+        max-width: $max-width;
+        margin: 0 auto;
+        
+        a {
+            display: block;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            
+            &:hover {
+                opacity: 0.8;
+                transform: scale(1.05);
+            }
+        }
+        
+        img {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+            filter: grayscale(20%);
+            transition: filter 0.3s ease;
+            
+            &:hover {
+                filter: grayscale(0%);
+            }
+        }
+    }
+}
+
 // Responsive adjustments
 @media (max-width: $tablet) {
     .intro-section .intro-content {
@@ -294,6 +345,16 @@
     .cta-home-section {
         h2 {
             font-size: 1.5rem;
+        }
+    }
+    
+    .partners-section {
+        .partners-logos {
+            gap: 2rem;
+            
+            img {
+                height: 45px;
+            }
         }
     }
 }
