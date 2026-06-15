@@ -4,7 +4,7 @@ title: "NeurOptimiser: A General Framework for Neuromorphic Optimisation"
 authors: "Cruz-Duarte, J.M. & Talbi, E-G."
 year: 2026
 month: 1
-category: presentation
+category: presentation, publication
 type: Conference Talk
 venue: "International Workshop on Big Optimization (WBO) 2025"
 location: "Catania, Italy"

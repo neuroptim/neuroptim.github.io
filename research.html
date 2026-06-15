@@ -32,7 +32,8 @@ permalink: /research/
         {% if site.publications %}
         {% assign sorted_pubs = site.publications | sort: 'year' | sort: 'month' | reverse %}
         {% for pub in sorted_pubs %}
-        <article class="publication-card" data-category="{{ pub.category }}" data-year="{{ pub.year }}">
+        {% assign pub_categories = pub.category | split: ", " %}
+        <article class="publication-card" data-categories="{{ pub_categories | join: ' ' }}" data-year="{{ pub.year }}">
             <div class="pub-metadata">
                 <span class="pub-type">{{ pub.type }}</span>
                 <span class="pub-year">{{ pub.year }}</span>
@@ -112,7 +113,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const filter = this.dataset.filter;
             
             cards.forEach(card => {
-                if (filter === 'all' || card.dataset.category === filter) {
+                const categories = (card.dataset.categories || '').split(' ');
+                if (filter === 'all' || categories.includes(filter)) {
                     card.style.display = '';
                 } else {
                     card.style.display = 'none';
