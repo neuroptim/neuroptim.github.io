@@ -6,13 +6,13 @@ category: dataset
 description: "Experiment codes and datasets for the WCCI 2026 paper, featuring comprehensive experiments on BBOB test suite with linear and Izhikevich spiking neuron models."
 version: "1.0.0"
 status: active
-license: CC BY 4.0
+license: BSD 3-Clause Clear License
 github: "https://github.com/neuroptimiser/neuroptimiser"
 documentation: "https://neuroptimiser.github.io/"
 zenodo: "https://zenodo.org/records/15858610"
 arxiv: "https://arxiv.org/abs/2507.08320"
 citation: "Cruz-Duarte, J. M., & Talbi, E.-G. (2025). NeurOptimisation: The Spiking Way to Evolve - Experiment Codes and Dataset (1.0.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.15858610"
-tags: [Dataset, Neuromorphic Optimisation, Spiking Neural Networks, Izhikevich, Differential Evolution, Evolutionary Computation, BBOB]
+tags: [Dataset, Neuromorphic Optimisation, Spiking Neural Networks, Izhikevich, Differential Evolution, Evolutionary Computation, BBOB, Lava]
 order: 4
 ---
 

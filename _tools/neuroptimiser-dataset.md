@@ -6,12 +6,12 @@ category: dataset
 description: "Experiment codes and datasets for the NeurOptimiser framework, including BBOB benchmark results with linear and Izhikevich spiking neuron models."
 version: "1.0.0"
 status: active
-license: CC BY 4.0
+license: BSD 3-Clause Clear License
 github: "https://github.com/neuroptimiser/neuroptimiser"
 documentation: "https://neuroptimiser.github.io/"
 zenodo: "https://zenodo.org/records/15592900"
 citation: "Cruz-Duarte, J. M., & Talbi, E.-G. (2025). NeurOptimiser: A General Framework for Neuromorphic Optimisation - Experiment Codes and Dataset (1.0.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.15592900"
-tags: [Dataset, Neuromorphic Optimisation, Spiking Neural Networks, Differential Evolution, Metaheuristics, Izhikevich, BBOB, Benchmarking]
+tags: [Dataset, Neuromorphic Optimisation, Spiking Neural Networks, Differential Evolution, Metaheuristics, Izhikevich, BBOB, Benchmarking, Lava]
 order: 3
 ---
 

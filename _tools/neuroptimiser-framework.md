@@ -5,7 +5,7 @@ image: https://avatars.githubusercontent.com/u/215023069?s=400&u=3f8b7bfe3e0c69e
 category: framework
 description: NeurOptimiser is a neuromorphic optimisation framework in which metaheuristic search emerges from asynchronous spiking dynamics.
 version: "1.0.2"
-license: MIT
+license: BSD 3-Clause Clear License
 github: https://github.com/neuroptimiser/neuroptimiser
 documentation: https://neuroptimiser.github.io
 pypi: https://pypi.org/project/neuroptimiser/

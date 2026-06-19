@@ -6,7 +6,7 @@ category: framework
 description: "NEVO uses a Nengo-simulated Basal Ganglia circuit to adaptively select optimisation operators at runtime, bridging neuromorphic computing with metaheuristic search."
 version: "0.1.0"
 status: active
-license: MIT
+license: BSD 3-Clause Clear License
 github: https://github.com/jcrvz/nevo
 documentation: https://jcrvz.github.io/nevo
 install: "pip install nevo"
