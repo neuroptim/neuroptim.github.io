@@ -14,7 +14,7 @@ layout: default
         <p class="pub-authors">{{ page.authors }}</p>
         <p class="pub-venue">{{ page.venue }}{% if page.location %}, {{ page.location }}{% endif %}</p>
         
-        {% if page.doi or page.arxiv or page.pdf or page.slides %}
+        {% if page.doi or page.url or page.arxiv or page.pdf or page.slides %}
         <div class="pub-detail-links">
             {% if page.doi %}
             <a href="https://doi.org/{{ page.doi }}" target="_blank" rel="noopener noreferrer" class="pub-link">
@@ -23,6 +23,14 @@ layout: default
                     <?xml version="1.0" encoding="UTF-8"?><svg width="16px" height="16px" viewBox="0 0 24 24" stroke-width="1.5" fill="none" xmlns="http://www.w3.org/2000/svg" color="#1e4c15"><path d="M6 6L18 6" stroke="#1e4c15" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M6 10H18" stroke="#1e4c15" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M13 14L18 14" stroke="#1e4c15" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M13 18L18 18" stroke="#1e4c15" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M2 21.4V2.6C2 2.26863 2.26863 2 2.6 2H21.4C21.7314 2 22 2.26863 22 2.6V21.4C22 21.7314 21.7314 22 21.4 22H2.6C2.26863 22 2 21.7314 2 21.4Z" stroke="#1e4c15" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M6 18V14H9V18H6Z" stroke="#1e4c15" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
                 </span> DOI
             </a>
+            {% endif %}
+            {% if page.url %}
+                <a href="{{ page.url }}" target="_blank" rel="noopener noreferrer" class="pub-link">
+                    <span>
+                        <!-- URL icon -->
+                        <?xml version="1.0" encoding="UTF-8"?><svg width="16px" height="16px" viewBox="0 0 24 24" stroke-width="1.5" fill="none" xmlns="http://www.w3.org/2000/svg" color="#1e4c15"><path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20Z" stroke="#1e4c15" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M12 6V12L16 14" stroke="#1e4c15" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                    </span> URL
+                </a>
             {% endif %}
             {% if page.arxiv %}
             <a href="https://arxiv.org/abs/{{ page.arxiv }}" target="_blank" rel="noopener noreferrer" class="pub-link">
