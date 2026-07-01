@@ -8,6 +8,7 @@ category: presentation, publication
 type: Conference Talk
 venue: "IEEE World Congress on Computational Intelligence (WCCI) 2026"
 location: "Maastricht, Netherlands"
+slides: "/assets/slides/wcci26-paper.pdf"
 tags:
   - Neuromorphic
   - Evolutionary Computing
