@@ -8,7 +8,7 @@ category: publication
 type: Article
 venue: "IEEE Transactions on Evolutionary Computation"
 doi: "10.1109/TEVC.2026.3723682"
-url: "ieeexplore.ieee.org/document/11655318"
+external_url: "ieeexplore.ieee.org/document/11655318"
 tags:
   - Neuromorphic Computing
   - Evolutionary Algorithms

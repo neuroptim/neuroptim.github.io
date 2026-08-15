@@ -9,7 +9,7 @@ type: Tutorial
 slides: "/assets/slides/WCCI26-tuto.pdf"
 venue: "IEEE World Congress on Computational Intelligence (WCCI) 2026"
 location: "Maastricht, Netherlands"
-url: "https://neuroptimiser.github.io/events/tutorials/nec-wcci26"
+external_url: "https://neuroptimiser.github.io/events/tutorials/nec-wcci26"
 tags:
   - Neuromorphic
   - Evolutionary Computing

@@ -14,7 +14,14 @@ layout: default
         <p class="pub-authors">{{ page.authors }}</p>
         <p class="pub-venue">{{ page.venue }}{% if page.location %}, {{ page.location }}{% endif %}</p>
         
-        {% if page.doi or page.url or page.arxiv or page.pdf or page.slides %}
+        {% assign external_url = page.external_url | default: page.website %}
+        {% if external_url == nil or external_url == '' %}
+            {% if page.url contains '://' or page.url contains 'www.' %}
+                {% assign external_url = page.url %}
+            {% endif %}
+        {% endif %}
+        
+        {% if page.doi or external_url or page.arxiv or page.pdf or page.slides %}
         <div class="pub-detail-links">
             {% if page.doi %}
             <a href="https://doi.org/{{ page.doi }}" target="_blank" rel="noopener noreferrer" class="pub-link">
@@ -24,11 +31,15 @@ layout: default
                 </span> DOI
             </a>
             {% endif %}
-            {% if page.url %}
-                <a href="{{ page.url }}" target="_blank" rel="noopener noreferrer" class="pub-link">
+            {% if external_url %}
+                {% assign external_href = external_url %}
+                {% unless external_href contains '://' %}
+                    {% assign external_href = 'https://' | append: external_href %}
+                {% endunless %}
+                <a href="{{ external_href }}" target="_blank" rel="noopener noreferrer" class="pub-link">
                     <span>
                         <!-- URL icon -->
-                        <?xml version="1.0" encoding="UTF-8"?><svg width="16px" height="16px" viewBox="0 0 24 24" stroke-width="1.5" fill="none" xmlns="http://www.w3.org/2000/svg" color="#1e4c15"><path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20Z" stroke="#1e4c15" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M12 6V12L16 14" stroke="#1e4c15" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                        <?xml version="1.0" encoding="UTF-8"?><svg width="16px" height="16px" viewBox="0 0 24 24" stroke-width="1.5" fill="none" xmlns="http://www.w3.org/2000/svg" color="#1e4c15"><path d="M9 12H15" stroke="#1e4c15" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M10 17H7C4.23858 17 2 14.7614 2 12C2 9.23858 4.23858 7 7 7H10" stroke="#1e4c15" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M14 7H17C19.7614 7 22 9.23858 22 12C22 14.7614 19.7614 17 17 17H14" stroke="#1e4c15" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
                     </span> URL
                 </a>
             {% endif %}

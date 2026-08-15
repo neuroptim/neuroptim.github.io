@@ -93,6 +93,10 @@ title: Page Title
 - Ruby (2.7 or higher)
 - Bundler
 
+```bash
+gem install bundler
+```
+
 ### Local Setup
 
 1. Install dependencies:
